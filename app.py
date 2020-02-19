@@ -2,16 +2,21 @@ from flask import Flask, request, render_template
 from twilio.rest import Client
 import os
 
-app = Flask(__name__)	# creates instance of Flask app and exports app so can be used as module or package
+# instantiate and export Flask app
+app = Flask(__name__)
+
+# instantiate Twilio client
+account_sid = os.environ['TWILIO_ACCOUNT_SID']#'AC872e613bcaf8a610ce583aee6a6ce844'	
+auth_token = os.environ['TWILIO_AUTH_TOKEN']#'ad657ad8d45e0a9490666a14fdf2ef6a'	
+client = Client(account_sid, auth_token)
 
 @app.route('/', methods=["GET", "POST"])
 def send_sms():
 
 	if request.method == "POST":
-		# instantiate Client object
-		account_sid = os.environ['TWILIO_ACCOUNT_SID']#'AC872e613bcaf8a610ce583aee6a6ce844'	
-		auth_token = os.environ['TWILIO_AUTH_TOKEN']#'ad657ad8d45e0a9490666a14fdf2ef6a'	
-		client = Client(account_sid, auth_token)
+
+		# TASK: limit two successful messages per IP address (to account for recipient phone num input error)
+		# TASK: validate recipient phone number
 
 		# message parameters
 		senderName = request.form['sender-name']
