@@ -29,6 +29,15 @@
 		</div>
 
 		<div id="main-section">
+
+			<div class="container" id="lead-container">
+
+				<p id="lead-text"> 
+					You can send a text message to your friend or whoever with a U.S. phone number. Try sending a message to your phone!
+				</p>
+
+			</div>
+
 			<div class="container" id="form-container">
 
 				<form class="form-group" method="post" enctype="multipart/form-data">
@@ -37,14 +46,10 @@
 
 					<input class="input-field form-control form-control-lg" id="recipient-phone-field" type="text" name="recipient-phone" placeholder="your recipient's phone number" required/>
 
-					<textarea class="input-field form-control form-control-lg" id="text-message" name="message" maxlength="20" placeholder="your message here (CHARACTERS LEFT)" required></textarea>
+					<textarea class="input-field form-control form-control-lg" id="text-message" name="message" maxlength="100" placeholder="your message here (CHARACTERS LEFT)" required></textarea>
 
-					<input type="submit" class="btn btn-primary" value="submit here">
+					<input type="submit" class="btn btn-primary" value="Send your SMS!">
 				</form>
-
-				<div id="status-display">
-					<p>MESSAGE STATUS DISPLAY</p>
-				</div>
 
 			</div>
 		</div>
