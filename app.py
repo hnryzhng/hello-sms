@@ -6,8 +6,8 @@ import os
 app = Flask(__name__)
 
 # instantiate Twilio client
-account_sid = os.environ['TWILIO_ACCOUNT_SID']#'AC872e613bcaf8a610ce583aee6a6ce844'	
-auth_token = os.environ['TWILIO_AUTH_TOKEN']#'ad657ad8d45e0a9490666a14fdf2ef6a'	
+account_sid = os.environ['TWILIO_ACCOUNT_SID']
+auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
 
 @app.route('/', methods=["GET", "POST"])
@@ -31,7 +31,7 @@ def send_sms():
 								from_=fromPhone,
 								to=toPhone
 							)
-		print("sent message?", message.sid)
+		print("sent message id:", message.sid)
 
 	return render_template("index.html")
 
