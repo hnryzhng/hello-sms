@@ -1,5 +1,12 @@
 notes.txt
 
+venv/
+
+*.pyc
+__pycache__/
+
+dist/
+build/
+
 .env
 .DS_Store
-__pycache__/
