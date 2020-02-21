@@ -10,6 +10,7 @@ account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
 
+# routes
 @app.route('/', methods=["GET", "POST"])
 def send_sms():
 
@@ -34,25 +35,6 @@ def send_sms():
 		print("sent message id:", message.sid)
 
 	return render_template("index.html")
-
-# @app.route("/form-test", methods=["GET", "POST"])
-# def index():
-	
-# 	if request.method == "POST":
-		
-# 		# TASK: validate phone number works with Twilio API
-
-# 		#name = request.form["name"]
-# 		targetPhone = request.form["recipient-phone"]	
-# 		messageBody = request.form["message"]
-		
-# 		# print ("user's name:", name)
-# 		print("targetPhone value:", targetPhone)
-# 		print("messageBody value:", messageBody)
-
-# 		#TASK: try/catch errors?
-		
-# 	return render_template("index.html")
 
 
 if __name__=="__main__":
