@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from twilio.rest import Client
 import os
 
@@ -22,26 +22,35 @@ def send_sms():
 		# message parameters
 		senderName = request.form['sender-name']
 		fromPhone= os.environ['FROM_PHONE']
-		toPhone= '+17133675645'	# validate phone number using Twilio service?
+		toPhone= '713 367 5645'	# validate phone number using Twilio service?
 		messageBody = request.form['message'] + f"- 'Hi {senderName}, Henry can help you send text messages like this one for customer notifications or surveys.' "
 
-		# set message parameters
+		# validate and format recipient phone number
+		outputToPhone = client.lookups \
+								.phone_numbers(toPhone)	\
+								.fetch(country_code='US')
+
+		formattedToPhone = outputToPhone.phone_number
+
+
+		# TASK: set message parameters if recipient phone number exists
+		# how to get the response status code from outputToPhone?
+		
 		message = client.messages \
 							.create(
 								body=messageBody,
 								from_=fromPhone,
-								to=toPhone
+								to=formattedToPhone
 							)
 
-		# validate and format recipient phone number
-		formattedToPhone = client.lookups \
-								.phone_numbers(toPhone)
-								.fetch(country_code='US')
 
 		print("sent message id:", message.sid)
-		print("formatted phone num:", formattedToPhone.phone_number)
+		print("output to phone status", outputToPhone.status)
+		print("formatted phone num:", formattedToPhone)
 
+	
 	return render_template("index.html")
+
 
 
 if __name__=="__main__":

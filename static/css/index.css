@@ -10,13 +10,18 @@ h1 {
 	text-align: center;
 }
 
-#form-container {
+#lead-text {
+	font-size: 1.3em;
+	color: #808285;
+}
+
+#form-container, #lead-container {
 	width: 80vw;
 	margin: 0 auto;
 }
 
 .input-field {
-	width: 50%;
+	width: 70%;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
