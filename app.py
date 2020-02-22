@@ -22,7 +22,7 @@ def send_sms():
 		# message parameters
 		senderName = request.form['sender-name']
 		fromPhone= os.environ['FROM_PHONE']
-		toPhone= request.form['recipient-phone']	# validate phone number using Twilio service?
+		toPhone= '+17133675645'	# validate phone number using Twilio service?
 		messageBody = request.form['message'] + f"- 'Hi {senderName}, Henry can help you send text messages like this one for customer notifications or surveys.' "
 
 		# set message parameters
