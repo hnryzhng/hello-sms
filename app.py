@@ -32,7 +32,14 @@ def send_sms():
 								from_=fromPhone,
 								to=toPhone
 							)
+
+		# validate and format recipient phone number
+		formattedToPhone = client.lookups \
+								.phone_numbers(toPhone)
+								.fetch(country_code='US')
+
 		print("sent message id:", message.sid)
+		print("formatted phone num:", formattedToPhone.phone_number)
 
 	return render_template("index.html")
 
