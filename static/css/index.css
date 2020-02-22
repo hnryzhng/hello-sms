@@ -10,10 +10,15 @@ h1 {
 	text-align: center;
 }
 
+#lead-container {
+	margin-top: 0.8em;
+}
+
 #lead-text {
 	font-size: 1.3em;
 	color: #808285;
 }
+
 
 #form-container, #lead-container {
 	width: 80vw;
