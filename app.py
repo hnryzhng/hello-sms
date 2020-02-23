@@ -45,7 +45,6 @@ def send_sms():
 
 
 		print("sent message id:", message.sid)
-		print("output to phone status", outputToPhone.status)
 		print("formatted phone num:", formattedToPhone)
 
 	
