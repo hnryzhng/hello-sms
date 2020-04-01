@@ -10,6 +10,14 @@ h1 {
 	text-align: center;
 }
 
+.container {
+	min-height: 100vh;
+}
+
+#main-section {
+	margin-bottom: 2em;
+}
+
 #lead-container {
 	width: 80vw;
 	margin: 0 auto;
